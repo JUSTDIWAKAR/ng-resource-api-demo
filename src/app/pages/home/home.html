@@ -1,0 +1,23 @@
+<div class="home-container">
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="mascot-video"
+    src="ng-mascot.mp4"
+    #mascot
+    (click)="mascot.play()"
+  ></video>
+
+  <h1 class="hello-title">
+    Hello, <span class="ngdelhi-text">ngDelhi</span
+    ><span class="hi-emoji">👋</span>
+  </h1>
+
+  <p class="subtitle">
+    Welcome to Angular's <strong>Resource API</strong> demo app 🎉
+  </p>
+
+  <button class="cta-button" (click)="goToTabs()">Let’s Go 🚀</button>
+</div>

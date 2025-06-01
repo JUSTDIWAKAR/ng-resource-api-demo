@@ -1,0 +1,21 @@
+.tabs-wrapper {
+  padding: 2.5rem;
+}
+
+:host ::ng-deep .mat-mdc-tab-group .mat-mdc-tab-labels {
+  border-radius: 8px;
+}
+
+:host ::ng-deep .mat-mdc-tab-label {
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+:host ::ng-deep .mdc-tab--active {
+  background: var(--red-to-pink-to-purple-vertical-gradient);
+  border-radius: 6px;
+}
+
+:host ::ng-deep .mat-mdc-tab-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+}

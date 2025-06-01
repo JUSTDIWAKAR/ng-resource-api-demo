@@ -1,0 +1,32 @@
+<div class="tab-content">
+  <input
+    [formControl]="searchControl"
+    type="text"
+    placeholder="Search users..."
+    class="search-input"
+  />
+
+  @if(loading) {
+  <div class="loading-container">
+    <mat-spinner diameter="50"></mat-spinner>
+    <span class="loading-text">Searching...</span>
+  </div>
+  } @if(error) {
+  <div class="error-container">
+    <span class="error-text">❌ Failed to fetch users</span>
+  </div>
+  } @if(!loading && !error) {
+  <ul class="user-list">
+    @for(user of users; track user.id) {
+    <li class="user-item">
+      <span class="user-name">{{ user.name }}</span>
+      <span class="user-email">{{ user.email }}</span>
+    </li>
+    } @empty {
+    <li class="user-item empty" style="border: 1px solid red">
+      🙈 No users found!
+    </li>
+    }
+  </ul>
+  }
+</div>

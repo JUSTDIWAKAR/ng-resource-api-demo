@@ -1,0 +1,34 @@
+<div class="tab-content">
+  <input
+    [formControl]="searchControl"
+    type="text"
+    placeholder="Search users..."
+    class="search-input"
+  />
+
+  @if (usersResource.isLoading()) {
+  <div class="loading-container">
+    <mat-spinner diameter="40"></mat-spinner>
+    <span class="loading-text">Searching...</span>
+  </div>
+  } @if (usersResource.error()) {
+  <div class="error-container">
+    <span class="error-text">Failed to fetch users</span>
+  </div>
+  } @if (usersResource.status() === 'resolved' && usersResource.value()) {
+  <ul class="user-list">
+    @for (user of usersResource.value(); track user.id) {
+    <li class="user-item">
+      <span class="user-name">{{ user.name }}</span>
+      <span class="user-email">{{ user.email }}</span>
+    </li>
+    }
+  </ul>
+  } @if (usersResource.status() === 'resolved' && usersResource.value()?.length
+  === 0) {
+  <div class="info-text">🙈 No users found</div>
+  <button class="btn" (click)="usersResource.reload()">Click to Reload</button>
+  }
+
+  <!-- <button class="btn" (click)="addUserBySet()">Add User</button> -->
+</div>
